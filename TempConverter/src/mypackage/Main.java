@@ -19,13 +19,14 @@ public class Main extends JFrame implements ActionListener{
 		
 		Main te = new Main();
 		
-		buttonF2C = new JButton("Convert to Celsius");
+		buttonF2C = new JButton("Convert C to F");
 		buttonF2C.addActionListener(te);
 		
-		buttonC2F = new JButton("Convert to Fahrenheit");
+		buttonC2F = new JButton("Convert F to C");
 		buttonC2F.addActionListener(te);
 		
-		label = new JLabel("F -> C");
+		label = new JLabel("");
+		JLabel labelDesc = new JLabel("Input temp to convert");
 		
 		myField = new JTextField(9);
 		
@@ -39,6 +40,7 @@ public class Main extends JFrame implements ActionListener{
 		frame.setSize(550,450);
 		frame.add(panel);
 		
+		panel.add(labelDesc);
 		panel.add(myField);
 		panel.add(buttonF2C);
 		panel.add(buttonC2F);
@@ -49,7 +51,7 @@ public class Main extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String input = e.getActionCommand();
-		if (input.equals("Convert to Celsius")) {
+		if (input.equals("Convert C to F")) {
 			var read = myField.getText();
 			int toInt = Integer.parseInt(read);
 			double result = (toInt - 32) * 0.556;
@@ -58,7 +60,7 @@ public class Main extends JFrame implements ActionListener{
 			
 			label.setText(c);
 			myField.setText("");
-		} else if (input.equals("Convert to Fahrenheit")) {
+		} else if (input.equals("Convert F to C")) {
 			var read = myField.getText();
 			int toInt = Integer.parseInt(read);
 			double result = (toInt * 1.8) + 32;
